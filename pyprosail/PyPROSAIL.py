@@ -87,4 +87,5 @@ def _run_prosail(N, Cab, Car, Cbrown, Cw, Cm, psoil, LAI, hspot, tts, tto, psi, 
 	wavelengths = np.arange(400, 2501)
 	res = _prosail_model.run(N, Cab, Car, Cbrown, Cw, Cm, psoil, LAI, hspot, tts, tto, psi, TypeLidf, LIDFa, LIDFb)
 
-	return (wavelengths/1000.0, res)
+	arr = np.transpose(np.vstack( (wavelengths/1000.0, res) ))
+	return arr

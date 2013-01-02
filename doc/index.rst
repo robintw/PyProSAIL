@@ -18,9 +18,9 @@ Run it with some parameters, and look at the results::
 
    >>> import pyprosail
    >>> result = pyprosail.run(1.5, 40, 8, 0, 0.01, 0.009, 1, 3, 0.01, 30, 10, 0, pyprosail.Planophile)
-   >>> result[0] # These are the wavelengths (in micrometres)
+   >>> result[:,0] # These are the wavelengths (in micrometres)
    array([ 0.4  ,  0.401,  0.402, ...,  2.498,  2.499,  2.5  ])
-   >>> result[1] # These are the reflectances (as a fraction)
+   >>> result[:,1] # These are the reflectances (as a fraction)
    array([ 0.02119318,  0.02121176,  0.0212236 , ...,  0.02039977,
         0.02024749,  0.02028665])
 
@@ -28,19 +28,19 @@ That's basically it! For more details on how to install it, exactly what paramet
 
 Installation
 ------------
-PyProSAIL is available on the Python Package Index (PyPI), and can therefore be installed using easy_install or pip,::
+PyProSAIL is available on the Python Package Index (PyPI), and can therefore be installed using easy_install or pip::
 
    pip install pyprosail
    # or
    easy_install pyprosail
 
-It depends on the ``numpy`` and ``scipy`` modules - which you are likely to already have installed if you do any scientific programming with Python. If not, I would suggest installing something like the `Enthought Python Distribution <http://www.enthought.com/products/epd.php>`_, or `Pythonxy <http://code.google.com/p/pythonxy/>`_.
+Or a Windows Installer can be downloaded from the `PyPI page <http://pypi.python.org/pypi/PyPROSAIL>`_. It depends on the ``numpy`` and ``scipy`` modules - which you are likely to already have installed if you do any scientific programming with Python. If not, I would suggest installing something like the `Enthought Python Distribution <http://www.enthought.com/products/epd.php>`_, or `Pythonxy <http://code.google.com/p/pythonxy/>`_.
 
 The actual installation process is a little more complicated than it is for many pure Python modules, as it involves compiling the original Fortran code of the ProSAIL model. If running the installation commands above does not give any errors then you can assume everything is working fine - but if it does, then read on below.
 
 As the installation requires compiling some Fortran code, it will need to be able to find a Fortran compiler. Thus, the most likely reason for the install to fail is because a Fortran compiler can't be found. The installation routine is fairly good at finding Fortran compilers (searching various sensible places - depending on the operating system), so simply installing one of the compilers listed below should make it all work:
 
-  * **Windows:** Follow the steps 1-4 `here <http://www.scipy.org/F2PY_Windows>`_ to install the GFortran compiler and set it up so that it can be used by the PyProSAIL installation procedure.
+  * **Windows:** The easiest way is to use the `Windows installer <http://pypi.python.org/pypi/PyPROSAIL>`_, but if you want to compile from the Fortran source then follow the steps 1-4 `here <http://www.scipy.org/F2PY_Windows>`_ to install the GFortran compiler and set it up so that it can be used by the PyProSAIL installation procedure.
   * **OS X:** Install GCC by following the instructions `here <http://hpc.sourceforge.net/#fortran>`_.
   * **Linux:** Install GFortran using the package manager for your system, for example ``apt-get install gfortran``.
  
@@ -54,7 +54,7 @@ and then call the run method, as documented below.
 
 .. py:function:: pyprosail.run(N, chloro, caroten, brown, EWT, LMA, psoil, LAI, hot_spot, solar_zenith, solar_azimuth, view_zenith, view_azimuth, LIDF)
 
-Runs the ProSAIL model with the given parameters and returns a tuple of arrays (wavelengths, reflectances). The model is always run for the entire wavelength range of 0.4--2.5 micrometres.
+Runs the ProSAIL model with the given parameters and returns a 2D array with two columns: wavelengths and reflectances. The model is always run for the entire wavelength range of 0.4--2.5 micrometres.
 
 Arguments:
   

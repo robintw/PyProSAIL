@@ -5,7 +5,6 @@ def configuration(parent_package='',top_path=None):
     						name = "PyPROSAIL",
     						version = "0.1",
                             description = """PyProSAIL is a Python interface to the ProSAIL combined leaf and canopy optical model.
-
 For more information see http://pyprosail.readthedocs.org.""",
                             packages = ['pyprosail'],
     						author = "Robin Wilson",
