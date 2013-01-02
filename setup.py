@@ -3,7 +3,7 @@ def configuration(parent_package='',top_path=None):
     from numpy.distutils.misc_util import Configuration
     config = Configuration('',parent_package,top_path,
     						name = "PyPROSAIL",
-    						version = "0.1",
+    						version = "1.0",
                             description = """PyProSAIL is a Python interface to the ProSAIL combined leaf and canopy optical model.
 For more information see http://pyprosail.readthedocs.org.""",
                             packages = ['pyprosail'],

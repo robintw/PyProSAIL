@@ -43,6 +43,8 @@ As the installation requires compiling some Fortran code, it will need to be abl
   * **Windows:** The easiest way is to use the `Windows installer <http://pypi.python.org/pypi/PyPROSAIL>`_, but if you want to compile from the Fortran source then follow the steps 1-4 `here <http://www.scipy.org/F2PY_Windows>`_ to install the GFortran compiler and set it up so that it can be used by the PyProSAIL installation procedure.
   * **OS X:** Install GCC by following the instructions `here <http://hpc.sourceforge.net/#fortran>`_.
   * **Linux:** Install GFortran using the package manager for your system, for example ``apt-get install gfortran``.
+
+If you have any issues with installation, please contact me using the details in the Support section below.
  
 Running the model
 -----------------
