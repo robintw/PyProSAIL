@@ -93,7 +93,18 @@ Examples of valid values for the leaf distribution function parameter include:
 
 Using with Py6S
 ---------------
+PyProSAIL is very easy to use with Py6S (a Python interface to the 6S Radiative Transfer Model - see `here <http://py6s.readthedocs.org>`_). PyProSAIL can be used to create a spectrum, which can then be used by Py6S as the ground reflectance for a simulation::
 
+   # Make sure you have both PyProSAIL and Py6S installed
+   import pyprosail
+   from Py6S import *
+
+   spectrum = pyprosail.run(1.5, 40, 8, 0, 0.01, 0.009, 1, 3, 0.01, 30, 0, 10, 0, pyprosail.Planophile)
+   s = SixS()
+   s.ground_reflectance = GroundReflectance.HomogeneousLambertian(spectrum)
+   s.run()
+
+It's as simple as that! For more information on the parameters that you can pass to the GroundReflectance functions, see the `Py6S documentation <http://py6s.readthedocs.org/en/latest/params.html#ground-reflectances>`_.
 
 Support
 -------
