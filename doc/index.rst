@@ -28,18 +28,22 @@ That's basically it! For more details on how to install it, exactly what paramet
 
 Installation
 ------------
-PyProSAIL is available on the Python Package Index (PyPI), and can therefore be installed using easy_install or pip::
+PyProSAIL is available on the Python Package Index (PyPI), and can therefore be installed using easy_install or pip,::
 
    pip install pyprosail
    # or
    easy_install pyprosail
 
-However, the actual installation process is a little more complicated than it is for many pure Python modules, as it involves compiling the original Fortran code of the ProSAIL model. If running the installation commands above does not give any errors then you can assume everything is working fine - but if it does, then read on below.
+It depends on the ``numpy`` and ``scipy`` modules - which you are likely to already have installed if you do any scientific programming with Python. If not, I would suggest installing something like the `Enthought Python Distribution <http://www.enthought.com/products/epd.php>`_, or `Pythonxy <http://code.google.com/p/pythonxy/>`_.
+
+The actual installation process is a little more complicated than it is for many pure Python modules, as it involves compiling the original Fortran code of the ProSAIL model. If running the installation commands above does not give any errors then you can assume everything is working fine - but if it does, then read on below.
 
 As the installation requires compiling some Fortran code, it will need to be able to find a Fortran compiler. Thus, the most likely reason for the install to fail is because a Fortran compiler can't be found. The installation routine is fairly good at finding Fortran compilers (searching various sensible places - depending on the operating system), so simply installing one of the compilers listed below should make it all work:
 
-PUT FORTRAN COMPILER LINKS HERE
-
+  * **Windows:** Follow the steps 1-4 `here <http://www.scipy.org/F2PY_Windows>`_ to install the GFortran compiler and set it up so that it can be used by the PyProSAIL installation procedure.
+  * **OS X:** Install GCC by following the instructions `here <http://hpc.sourceforge.net/#fortran>`_.
+  * **Linux:** Install GFortran using the package manager for your system, for example ``apt-get install gfortran``.
+ 
 Running the model
 -----------------
 To run the model using some parameters, simply import the model::
