@@ -8,6 +8,8 @@ Welcome to PyProSAIL's documentation!
 
 PyProSAIL is a Python interface to the ProSAIL combined leaf optical properties (PROSPECT) and canopy bi-directional reflectance (SAIL) model. The Python code simply interfaces with the Fortran code provided `here <http://teledetection.ipgp.jussieu.fr/prosail/>`_ and, currently at least, does nothing more than let you run it easily from code.
 
+This interface is released under the GNU Lesser General Public License.
+
 (Very) Quickstart
 -----------------
 Install it from PyPI::
