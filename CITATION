@@ -1,0 +1,12 @@
+If you use PyProSAIL in your academic work then please cite it as follows:
+
+Wilson, R. T., PyProSAIL, Available from https://github.com/robintw/PyProSAIL
+
+In BibTeX format:
+
+@electronic{,
+  author = {Wilson, R. T.},
+  year = {2013},
+  title = {PyProSAIL},
+  url = {https://github.com/robintw/PyProSAIL}
+}
