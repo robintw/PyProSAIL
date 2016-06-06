@@ -18,13 +18,16 @@ For more information see http://pyprosail.readthedocs.org.""",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)",
         "Programming Language :: Python"
-        
+
         ])
 
     config.add_extension('_prosail_model',
-                         sources = ['./pyprosail/MODULE_PRO4SAIL.f90', './pyprosail/dataSpec_P5B.f90', './pyprosail/LIDF.f90', './pyprosail/dladgen.f', './pyprosail/PRO4SAIL.f90', './pyprosail/prospect_5B.f90', './pyprosail/tav_abs.f90', './pyprosail/volscatt.f90', './pyprosail/PyPROSAIL.f90'])
+                         sources = ['./pyprosail/MODULE_PRO4SAIL.f90', './pyprosail/dataSpec_P5B.f90',
+                         './pyprosail/LIDF.f90', './pyprosail/dladgen.f', './pyprosail/PRO4SAIL.f90',
+                         './pyprosail/prospect_5B.f90', './pyprosail/tav_abs.f90', './pyprosail/volscatt.f90',
+                         './pyprosail/PyPROSAIL.f90'])
     return config
-    
+
 if __name__ == "__main__":
     from numpy.distutils.core import setup
     setup(**configuration(top_path='').todict())
