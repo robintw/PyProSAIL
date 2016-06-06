@@ -19,7 +19,6 @@ install:
   - activate python%PYTHON_VERSION%
   - pip install -i https://pypi.anaconda.org/carlkl/simple mingwpy
   - conda install -q --name python%PYTHON_VERSION% setuptools numpy matplotlib nose pandas wheel scipy
-  - pip install -q mando tstoolbox baker
   - python.exe setup.py config_fc
   - python.exe setup.py config --compiler=mingw32 --fcompiler=gfortran
   - python.exe setup.py build --compiler=mingw32
@@ -29,7 +28,8 @@ build: off
 
 after_test:
   # This step builds your wheels.
-  - python.exe setup.py bdist_wheel
+  - python.exe setup.py bdist
+  - python.exe setup.py sdist
 
 artifacts:
   # bdist_wheel puts your built wheel in the dist directory
