@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import _prosail_model
+from . import _prosail_model
 import numpy as np
 
 # Common leaf distributions
