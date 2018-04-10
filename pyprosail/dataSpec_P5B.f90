@@ -16,7 +16,7 @@
 ! [8] = fraction of diffuse light
 ! [9] = reflectance of a dry soil
 ! [10] = reflectance of a wet soil
-! Féret et al. (2008), PROSPECT-4 and 5: Advances in the Leaf Optical
+! Feret et al. (2008), PROSPECT-4 and 5: Advances in the Leaf Optical
 ! Properties Model Separating Photosynthetic Pigments, Remote Sensing of
 ! Environment
 ! The specific absorption coefficient corresponding to brown pigment is

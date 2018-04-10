@@ -15,7 +15,7 @@
 ! 	Verhoef et al. (2007) Unified Optical-Thermal Four-Stream Radiative
 ! 	Transfer Theory for Homogeneous Vegetation Canopies, IEEE TRANSACTIONS 
 ! 	ON GEOSCIENCE AND REMOTE SENSING, VOL. 45, NO. 6, JUNE 2007
-! 	Féret et al. (2008), PROSPECT-4 and 5: Advances in the Leaf Optical
+! 	Feret et al. (2008), PROSPECT-4 and 5: Advances in the Leaf Optical
 ! 	Properties Model Separating Photosynthetic Pigments, REMOTE SENSING OF 
 ! 	ENVIRONMENT
 ! The specific absorption coefficient corresponding to brown pigment is
@@ -102,8 +102,8 @@ ALLOCATE (rsoil_old(nw))
 !!LEAF CHEM & STR PROPERTIES!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	! INITIAL PARAMETERS
-	!Cab		=	40.		! chlorophyll content (µg.cm-2) 
-	!Car		=	8.		! carotenoid content (µg.cm-2)
+	!Cab		=	40.		! chlorophyll content (ug.cm-2) 
+	!Car		=	8.		! carotenoid content (ug.cm-2)
 	!Cbrown	=	0.0		! brown pigment content (arbitrary units)
 	!Cw		=	0.01	! EWT (cm)
 	!Cm		=	0.009	! LMA (g.cm-2)
@@ -123,9 +123,9 @@ ALLOCATE (rsoil_old(nw))
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	!LAI		=	3.		! leaf area index (m^2/m^2)
 	!hspot	=	0.01	! hot spot
-	!tts		=	30.		! solar zenith angle (°)
-	!tto		=	10.		! observer zenith angle (°)
-	!psi		=	0.		! azimuth (°)
+	!tts		=	30.		! solar zenith angle (degrees)
+	!tto		=	10.		! observer zenith angle (degrees)
+	!psi		=	0.		! azimuth (degrees)
 
 	init_completed=.false.	! only at first call of PRO4SAIL
 
@@ -138,7 +138,7 @@ ALLOCATE (rsoil_old(nw))
 !!	direct / diffuse light	!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	! the direct and diffuse light are taken into account as proposed by:
-	! Francois et al. (2002) Conversion of 400–1100 nm vegetation albedo 
+	! Francois et al. (2002) Conversion of 400-1100 nm vegetation albedo 
 	! measurements into total shortwave broadband albedo using a canopy 
 	! radiative transfer model, Agronomie
 	skyl	=	0.847- 1.61*sin((90-tts)*rd)+ 1.04*sin((90-tts)*rd)*sin((90-tts)*rd) ! % diffuse radiation

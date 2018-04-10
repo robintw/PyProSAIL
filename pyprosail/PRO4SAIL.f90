@@ -1,11 +1,11 @@
 SUBROUTINE PRO4SAIL(N,Cab,Car,Cbrown,Cw,Cm,LIDFa,LIDFb,TypeLIDF,lai,q,tts,tto,psi,rsoil)
 
-	! This version has been implemented by Jean-Baptiste Féret
-	! Jean-Baptiste Féret takes the entire responsibility for this version 
+	! This version has been implemented by Jean-Baptiste Feret
+	! Jean-Baptiste Feret takes the entire responsibility for this version 
 	! All comments, changes or questions should be sent to:
 	! jbferet@stanford.edu
 
-!	Jean-Baptiste Féret
+!	Jean-Baptiste Feret
 !	Institut de Physique du Globe de Paris
 !	Space and Planetary Geophysics
 !	October 2009
@@ -243,7 +243,7 @@ ENDIF
 IF (flag(6)) THEN
 	!	Treatment of the hotspot-effect
 	alf=1e6
-	!	Apply correction 2/(K+k) suggested by F.-M. Bréon
+	!	Apply correction 2/(K+k) suggested by F.-M. Breon
 	IF (q.gt.0.) THEN
 		alf=(dso/q)*2./(ks+ko)
 	ENDIF
