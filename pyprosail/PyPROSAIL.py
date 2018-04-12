@@ -86,7 +86,10 @@ def run(N, chloro, caroten, brown, EWT, LMA, psoil, LAI, hot_spot, solar_zenith,
 		LIDFa = LIDF
 		LIDFb = 0
 
-	return(_run_prosail(N, chloro, caroten, brown, EWT, LMA, psoil, LAI, hot_spot, solar_zenith, view_zenith, solar_azimuth, TypeLidf, LIDFa, LIDFb))
+	# Calculate the view-sun relative azimuth angle	(psi)
+	psi=abs(view_azimuth-solar_azimuth)
+
+	return(_run_prosail(N, chloro, caroten, brown, EWT, LMA, psoil, LAI, hot_spot, solar_zenith, view_zenith, psi, TypeLidf, LIDFa, LIDFb))
 
 def _run_prosail(N, Cab, Car, Cbrown, Cw, Cm, psoil, LAI, hspot, tts, tto, psi, TypeLidf, LIDFa, LIDFb):
 	# Check parameters here
