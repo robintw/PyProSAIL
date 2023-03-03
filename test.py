@@ -16,7 +16,7 @@ res = pyprosail.run(
     tto=0,
     psi=10,
     TypeLidf=1,
-    LIDFa=LIDFa, 
+    LIDFa=LIDFa,
     LIDFb=LIDFb
 )
 
