@@ -21,7 +21,7 @@ The main function is `run`, which runs the ProSAIL model and returns the results
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from prosail_model import run as run_fortran
+from _prosail_model import run as run_fortran
 import numpy as np
 
 # Common leaf distributions
