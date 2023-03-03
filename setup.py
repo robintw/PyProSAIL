@@ -6,9 +6,7 @@ def configuration(parent_package='',top_path=None):
         parent_package,top_path,
         name = "pyprosail",
         version = "1.0.1",
-        description = """
-        PyProSAIL is a Python interface to the ProSAIL combined leaf and canopy optical model.
-        For more information see http://pyprosail.readthedocs.org.""",
+        description = """PyProSAIL is a Python interface to the ProSAIL combined leaf and canopy optical model. For more information see http://pyprosail.readthedocs.org.""",
         packages = ['pyprosail'],
         author = "Robin Wilson",
         author_email = "robin@rtwilson.com",
@@ -24,13 +22,22 @@ def configuration(parent_package='',top_path=None):
         ])
 
     config.add_extension(
-        'prosail_model',
-         sources = ['./pyprosail/MODULE_PRO4SAIL.f90', './pyprosail/dataSpec_P5B.f90',
-         './pyprosail/LIDF.f90', './pyprosail/dladgen.f', './pyprosail/PRO4SAIL.f90',
-         './pyprosail/prospect_5B.f90', './pyprosail/tav_abs.f90', './pyprosail/volscatt.f90',
-         './pyprosail/PyPROSAIL.f90'])
+        '_prosail_model',
+        sources = [
+            './pyprosail/MODULE_PRO4SAIL.f90',
+            './pyprosail/dataSpec_P5B.f90',
+            './pyprosail/LIDF.f90',
+            './pyprosail/dladgen.f',
+            './pyprosail/PRO4SAIL.f90',
+            './pyprosail/prospect_5B.f90',
+            './pyprosail/tav_abs.f90',
+            './pyprosail/volscatt.f90',
+            './pyprosail/PyPROSAIL.f90'
+        ]
+    )
     return config
 
 if __name__ == "__main__":
+
     from numpy.distutils.core import setup
     setup(**configuration(top_path='').todict())
