@@ -22,4 +22,5 @@ CHL
 MANIFEST
 .project
 .pydevproject
+*.so
 
