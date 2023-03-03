@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from . import _prosail_model
+from prosail_model import run as run_fortran
 import numpy as np
 
 # Common leaf distributions
@@ -86,7 +86,7 @@ def run(N, chloro, caroten, brown, EWT, LMA, psoil, LAI, hot_spot, solar_zenith,
 		LIDFa = LIDF
 		LIDFb = 0
 
-	return(_run_prosail(N, chloro, caroten, brown, EWT, LMA, psoil, LAI, hot_spot, solar_zenith, view_zenith, solar_azimuth, TypeLidf, LIDFa, LIDFb))
+	return(run_fortran(N, chloro, caroten, brown, EWT, LMA, psoil, LAI, hot_spot, solar_zenith, view_zenith, solar_azimuth, TypeLidf, LIDFa, LIDFb))
 
 def _run_prosail(N, Cab, Car, Cbrown, Cw, Cm, psoil, LAI, hspot, tts, tto, psi, TypeLidf, LIDFa, LIDFb):
 	# Check parameters here
@@ -101,7 +101,7 @@ def _run_prosail(N, Cab, Car, Cbrown, Cw, Cm, psoil, LAI, hspot, tts, tto, psi, 
 		pass
 
 	wavelengths = np.arange(400, 2501)
-	res = _prosail_model.run(N, Cab, Car, Cbrown, Cw, Cm, psoil, LAI, hspot, tts, tto, psi, TypeLidf, LIDFa, LIDFb)
+	res = run(N, Cab, Car, Cbrown, Cw, Cm, psoil, LAI, hspot, tts, tto, psi, TypeLidf, LIDFa, LIDFb)
 
 	arr = np.transpose(np.vstack( (wavelengths/1000.0, res) ))
 	return arr
