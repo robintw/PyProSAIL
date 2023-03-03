@@ -32,6 +32,7 @@ Extremophile = (0, 1)
 Spherical = (-0.35, -0.15)
 Uniform = (0, 0)
 
+# TODO: use relative azimuth angle
 def run(N, chloro, caroten, brown, EWT, LMA, psoil, LAI, hot_spot, solar_zenith, solar_azimuth, view_zenith, view_azimuth, LIDF):
     """
     Runs the ProSAIL model with the given parameters and returns a wavelength-reflectance
