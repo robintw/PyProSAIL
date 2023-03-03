@@ -20,3 +20,6 @@ CHL
 /doc/_build/*
 *.pyd
 MANIFEST
+.project
+.pydevproject
+
