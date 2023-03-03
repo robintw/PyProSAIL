@@ -11,7 +11,7 @@ def configuration(parent_package='',top_path=None):
         description = """
         PyProSAIL is a Python interface to the ProSAIL combined leaf and canopy optical model.
         For more information see http://pyprosail.readthedocs.org.""",
-        packages = find_packages(),
+        packages = ['pyprosail'],
         author = "Robin Wilson",
         author_email = "robin@rtwilson.com",
         url = "http://packages.python.org/PyPROSAIL",
