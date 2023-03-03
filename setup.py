@@ -1,3 +1,5 @@
+from setuptools import find_packages
+
 # File setup.py
 def configuration(parent_package='',top_path=None):
     from numpy.distutils.misc_util import Configuration
@@ -6,7 +8,7 @@ def configuration(parent_package='',top_path=None):
                             version = "1.0.1",
                             description = """PyProSAIL is a Python interface to the ProSAIL combined leaf and canopy optical model.
 For more information see http://pyprosail.readthedocs.org.""",
-                            packages = ['pyprosail'],
+                            packages = find_packages(),
                             author = "Robin Wilson",
                             author_email = "robin@rtwilson.com",
                             url = "http://packages.python.org/PyPROSAIL",
