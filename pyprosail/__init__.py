@@ -34,21 +34,21 @@ Spherical = (-0.35, -0.15)
 Uniform = (0, 0)
 
 def run(
-    N: float,
-    Cab: float,
-    Car: float,
-    Cbrown: float,
-    Cw: float,
-    Cm: float,
+    n: float,
+    cab: float,
+    car: float,
+    cbrown: float,
+    cw: float,
+    cm: float,
     psoil: float,
-    LAI: float,
+    lai: float,
     hspot: float,
     tts: float,
     tto: float,
     psi: float,
-    TypeLidf: int,
-    LIDFa: int | float,
-    LIDFb: int | float
+    typelidf: int,
+    lidfa: int | float,
+    lidfb: int | float
 ) -> np.ndarray:
     """
     Runs the ProSAIL model with the given parameters and returns a wavelength-reflectance
@@ -56,28 +56,28 @@ def run(
 
     Arguments:
       
-      * ``N`` -- Structure co-efficient
-      * ``Cab`` -- Chlorophyll content (ug per cm^2)
-      * ``Car`` -- Carotenoid content (ug per cm^2)
-      * ``Cbrown`` -- Brown pigment content (arbitrary units)
-      * ``Cw`` -- Equivalent Water Thickness (cm)
-      * ``Cm`` -- Leaf Mass per unit area (g per cm^2)
+      * ``n`` -- Structure co-efficient
+      * ``cab`` -- Chlorophyll content (ug per cm^2)
+      * ``car`` -- Carotenoid content (ug per cm^2)
+      * ``cbrown`` -- Brown pigment content (arbitrary units)
+      * ``cw`` -- Equivalent Water Thickness (cm)
+      * ``cm`` -- Leaf Mass per unit area (g per cm^2)
       * ``psoil`` -- Soil reflectance: wet soil = 0, dry soil = 1
-      * ``LAI`` -- Leaf Area Index
+      * ``lai`` -- Leaf Area Index
       * ``hot_spot`` -- Hot spot parameter
       * ``tts`` -- Solar zenith angle (degrees)
       * ``tto`` -- Observer zenith angle (degrees)
       * ``psi`` -- relative azimuth angle (degrees)
-      * ``TypeLidf`` -- Type of leaf angle distribution to use
-      * ``LIDFa`` -- Leaf distribution function parameter a (see below)
-      * ``LIDFb`` -- Leaf distribution function parameter b (see below)
+      * ``typelidf`` -- Type of leaf angle distribution to use
+      * ``lidfa`` -- Leaf distribution function parameter a (see below)
+      * ``lidfb`` -- Leaf distribution function parameter b (see below)
       
     Returns:
 
       * ``arr`` -- a two-dimensional array with wavelengths in nm and 
         PROSAIL bi-directional reflectance factors
 
-    If TypeLidf is 1 ``TypeLidf=1``:
+    If TypeLidf is 1 ``typelidf=1``:
         LIDFa and LIDFb define the average leaf slope and bimodality. These parameters must sum to be
         less than 1.0. For convenience a number of predefined options are given including:
 
@@ -88,7 +88,7 @@ def run(
               * Spherical
               * Uniform
 
-    If TypeLidf is 2 ``TypeLidf=2``:
+    If TypeLidf is 2 ``typelidf=2``:
 
       * A single number defines the average leaf angle (in degrees) for an elipsoidal distribution.
       0 is planophile and 90 is erectophile.
@@ -102,14 +102,14 @@ def run(
     
     # Check parameters here
     # TypeLidf must be either 1 or 2
-    if TypeLidf not in [1, 2]:
-        raise ValueError(f'TypeLidf must be either 1 or 2, got {TypeLidf}')
+    if typelidf not in [1, 2]:
+        raise ValueError(f'TypeLidf must be either 1 or 2, got {typelidf}')
 
-    if TypeLidf == 1 and LIDFa + LIDFb > 1:
+    if typelidf == 1 and lidfa + lidfb > 1:
         raise ValueError('If TypeLidf is 1 the sum of LIDFa and LIDFb must not be greater than 1.')
 
     wavelengths = np.arange(400, 2501)
-    res = run_fortran(N, Cab, Car, Cbrown, Cw, Cm, psoil, LAI, hspot, tts, tto, psi, TypeLidf, LIDFa, LIDFb)
+    res = run_fortran(n, cab, car, cbrown, cw, cm, psoil, lai, hspot, tts, tto, psi, typelidf, lidfa, lidfb)
     arr = np.transpose(np.vstack((wavelengths, res)))
 
     return arr
