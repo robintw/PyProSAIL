@@ -1,4 +1,6 @@
-**This module is no longer supported**
+# PyProSAIL
+
+**This version of PyProSAIL is no longer supported. Please use [this version](https://github.com/EOA-team/PyProSAIL) instead.**
 
 PyProSAIL is a Python interface to the ProSAIL combined leaf and canopy optical model.
 
